@@ -1,0 +1,37 @@
+@import '../../styles/utils';
+
+.tool-button {
+	position: relative;
+	vertical-align: middle;
+	width: 52px;
+	height: 52px;
+	line-height: 52px;
+	text-align: center;
+	cursor: pointer;
+	user-select: none;
+	background-color: #fff;
+	transition: background-color ease @dur;
+
+	svg {
+		vertical-align: middle;
+		fill: @color-secondary;
+	}
+
+	&:hover {
+		background-color: @color-hover;
+		.faster;
+	}
+
+	&:active {
+		background-color: @color-active;
+		.faster;
+	}
+
+	&.i-active {
+		background-color: @color-secondary;
+		
+		svg {
+			fill: #fff;
+		}
+	}
+}

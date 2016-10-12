@@ -1,0 +1,74 @@
+// Placeholder color
+.placeholder(@color) {
+	&::-webkit-input-placeholder { color: @color; }
+	&::-moz-placeholder          { color: @color; opacity: 1; }
+	&:-moz-placeholder           { color: @color; opacity: 1; }
+	&:-ms-input-placeholder      { color: @color; }
+}
+
+// Font smoothing
+.smooth-font() {
+	-webkit-font-smoothing: antialiased;
+}
+
+// Faster transition
+.faster(@_dur: @dur, @_coeff: 6) {
+	transition-duration: @_dur / @_coeff;
+}
+
+// Clearfix
+.clearfix() {
+	&:after {
+		display: block;
+		content: '';
+		height: 0;
+		overflow: hidden;
+		clear: both;
+	}
+}
+
+// Fullsize
+.fullsize() {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+}
+
+// Font-face
+// .webfont(@family, @file, @weight: normal, @style: normal) {
+// 	@font-face {
+// 		font-family: @family;
+// 		src: url('../fonts/@{file}.eot');
+// 		src: url('../fonts/@{file}.eot?#iefix') format('embedded-opentype'),
+// 			url('../fonts/@{file}.woff') format('woff'),
+// 			url('../fonts/@{file}.ttf') format('truetype'),
+// 			url('../fonts/@{file}.svg#@{file}') format('svg');
+// 		font-weight: @weight;
+// 		font-style: @style;
+// 	}
+// }
+
+// Custom scrollbar
+.custom-scrollbar(@color: @brand-color) {
+	&::-webkit-scrollbar {
+		width: 2px;
+		background: transparent;
+	}
+	&::-webkit-scrollbar-track {
+		border-radius: 0;
+	}
+	&::-webkit-scrollbar-track-piece {
+		background: transparent;
+	}
+	&::-webkit-scrollbar-thumb {
+		border-radius: 0;
+		background: @color;
+	}
+	&::-webkit-resizer,
+	&::-webkit-scrollbar-button,
+	&::-webkit-scrollbar-corner {
+		display:none;
+	}
+}

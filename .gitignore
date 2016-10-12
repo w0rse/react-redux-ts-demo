@@ -1,0 +1,6 @@
+.awcache/
+node_modules/
+dev_log.log
+webpack_stats.json
+npm-debug.log
+.DS_Store
