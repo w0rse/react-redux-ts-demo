@@ -1,5 +1,4 @@
 import * as React from 'react';
-import * as CSSModules from 'react-css-modules';
 
 
 // Styles
@@ -13,10 +12,10 @@ interface IPageProps {
 
 
 // Component
-export const Page = CSSModules(({
+export const Page = ({
 	children = null
 }: IPageProps) => (
-	<div styleName="app">
+	<div className={ styles.app }>
 		{ children }
 	</div>
-), styles);
+);

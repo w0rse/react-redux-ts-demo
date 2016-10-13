@@ -13,9 +13,9 @@ var applicationEntries = process.env.ENV === 'development'
 		'webpack/hot/only-dev-server',
 	] : [ ];
 
-// var sourceMap = process.env.TEST || process.env.ENV !== 'production'
-// 	? [ new webpack.SourceMapDevToolPlugin({ filename: null, test: /\.tsx?$/ }) ]
-// 	: [ ];
+var sourceMap = process.env.TEST || process.env.ENV !== 'production'
+	? [ new webpack.SourceMapDevToolPlugin({ filename: null, test: /\.tsx?$/ }) ]
+	: [ ];
 
 module.exports = {
 	entry: [].concat(
@@ -32,10 +32,6 @@ module.exports = {
 	},
 
 	devtool: 'cheap-module-eval-source-map',
-
-	// devServer: {
-	// 	historyApiFallback: { index: '/' },
-	// },
 
 	resolve: {
 		extensions: [
@@ -60,7 +56,7 @@ module.exports = {
 		new webpack.NoErrorsPlugin(),
 		new ForkCheckerPlugin(),
 		// new ExtractTextPlugin('[name].css'),
-	],
+	].concat(sourceMap),
 
 	module: {
 		loaders: [

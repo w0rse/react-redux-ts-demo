@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { Component } from 'react';
-import * as CSSModules from 'react-css-modules';
 import * as classNames from 'classnames';
 
 import { ClickOutside } from '../ClickOutside';
@@ -19,18 +18,17 @@ type TToolDropdownSelectValue = TDropdownMenuValue;
 
 interface IToolDropdownProps {
 	items: TToolDropdownItem[],
-	active?: boolean,
-	children?: React.ReactChild,
+	isActive?: boolean,
 	onSelect?: (value: TToolDropdownSelectValue) => void,
 };
 
 interface IToolDropdownState {
+	current?: number,
 	isOpened?: boolean,
 };
 
 
 // Component
-@CSSModules(styles, { allowMultiple: true })
 export class ToolDropdown extends Component<IToolDropdownProps, IToolDropdownState> {
 	static defaultProps = {
 		onSelect: () => {},
@@ -42,22 +40,32 @@ export class ToolDropdown extends Component<IToolDropdownProps, IToolDropdownSta
 	constructor() {
 		super();
 		this.state = {
+			current: 0,
 			isOpened: false,
 		};
 	}
 
 	/**
-	 * Select the value
+	 * Select tool
 	 */
-	select = (value: TToolDropdownSelectValue) => {
-		this.props.onSelect(value);
+	select = (index: number) => {
+		const item = this.props.items[index];
+		this.props.onSelect(item.value);
+		this.setState({ current: index });
 		this.onCloseDropdown();
 	}
 
 	/**
-	 * Handle click event
+	 * Handle button click event
 	 */
-	onClick = () => {
+	onClickButton = () => {
+		
+	}
+
+	/**
+	 * Handle arrow click event
+	 */
+	onClickArrow = () => {
 		if (!this.state.isOpened) {
 			this.onOpenDropdown();
 		} else {
@@ -83,16 +91,17 @@ export class ToolDropdown extends Component<IToolDropdownProps, IToolDropdownSta
 	 * Render the component
 	 */
 	render() {
-		const { isOpened } = this.state;
-		const { active, items, children } = this.props;
+		const { current, isOpened } = this.state;
+		const { isActive, items } = this.props;
+		const currentItem: TToolDropdownItem = items[current];
 		return (	
 			<ClickOutside onClickOutside={ this.onCloseDropdown }>
-				<div styleName={ classNames('tool-dropdown', { 'i-opened': isOpened }) }>
-					<div styleName="button">
-						<div styleName="arrow"></div>
-						<ToolButton onClick={ this.onClick } active={ active }>{ children }</ToolButton>
+				<div className={ classNames(styles.dropdown, { [styles.isOpened]: isOpened }) }>
+					<div className={ styles.button }>
+						<div className={ styles.arrow } onClick={ this.onClickArrow }></div>
+						<ToolButton onClick={ this.onClickButton } isActive={ isActive }>{ currentItem.icon }</ToolButton>
 					</div>
-					<div styleName="dropdown">
+					<div className={ styles.dropdownHolder }>
 						<DropdownMenu
 							items={ items }
 							isOpened={ isOpened }

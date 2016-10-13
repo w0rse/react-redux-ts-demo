@@ -1,9 +1,8 @@
 import * as React from 'react';
 import { Component } from 'react';
 import * as ReactDOM from 'react-dom';
-import * as CSSModules from 'react-css-modules';
 import * as classNames from 'classnames';
-
+import { MenuListItem } from '../MenuListItem';
 
 // Styles
 const styles = require('./styles');
@@ -12,7 +11,7 @@ const styles = require('./styles');
 // Types and Interfaces
 export type TDropdownMenuValue = string | number; 
 
-export type TDropdownMenuItem = { value: TDropdownMenuValue, label: React.ReactChild }; 
+export type TDropdownMenuItem = { value: TDropdownMenuValue, icon: React.ReactChild, label: React.ReactChild }; 
 
 interface IDropdownMenuProps {
 	items: TDropdownMenuItem[],
@@ -22,7 +21,6 @@ interface IDropdownMenuProps {
 
 
 // Component
-@CSSModules(styles, { allowMultiple: true })
 export class DropdownMenu extends Component<IDropdownMenuProps, null> {
 	static defaultProps = {
 		onSelect: () => {},
@@ -31,8 +29,8 @@ export class DropdownMenu extends Component<IDropdownMenuProps, null> {
 	/**
 	 * Handle click event
 	 */
-	onClick = (value: TDropdownMenuValue) => () => {
-		this.props.onSelect(value);
+	onClick = (index: number) => () => {
+		this.props.onSelect(index);
 	}
 
 	/**
@@ -41,14 +39,14 @@ export class DropdownMenu extends Component<IDropdownMenuProps, null> {
 	render() {
 		const { items, isOpened } = this.props;
 		return (
-			<div styleName={ classNames('dropdown-menu', { 'i-opened': isOpened }) }>
+			<div className={ classNames(styles.menu, { [styles.isOpened]: isOpened }) }>
 				{ items.map((item, i) => (
 					<div
 						key={ i.toString() + item.value.toString() }
-						onClick={ this.onClick(item.value) }
-						styleName="item"
+						onClick={ this.onClick(i) }
+						className={ styles.item }
 					>
-						{ item.label }
+						<MenuListItem icon={ item.icon }>{ item.label }</MenuListItem>
 					</div>
 				)) }
 			</div>

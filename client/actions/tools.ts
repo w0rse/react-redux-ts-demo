@@ -1,6 +1,8 @@
-// export const SET_ACTIVE_TOOL = 'SET_ACTIVE_TOOL';
+import { createAction } from 'redux-actions';
+import { SET_ACTIVE_TOOL } from '../constants/tools'; 
 
-// export const setActiveTool = (toolName: string) => ({
-// 	type: SET_ACTIVE_TOOL,
-// 	toolName
-// });
+export type TSetActiveTool = string;
+
+export type TToolsPayload = TSetActiveTool;
+
+export const setActiveTool = createAction(SET_ACTIVE_TOOL, toolName => toolName);

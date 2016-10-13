@@ -1,7 +1,7 @@
-// import { combineReducers } from 'redux';
+import { combineReducers } from 'redux';
 
-// import { tools } from './tools';
+import { tools } from './tools';
 
-// export const rootReducer = combineReducers({
-// 	tools,
-// });
+export const rootReducer = combineReducers({
+	tools,
+});

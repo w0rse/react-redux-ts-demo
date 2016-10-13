@@ -1,6 +1,6 @@
 @import '../../styles/utils';
 
-.tool-dropdown {
+.dropdown {
 	position: relative;
 }
 
@@ -12,8 +12,16 @@
 	width: 14px;
 	background-color: #E9EFF2;
 	opacity: 0;
-	pointer-events: none;
+	cursor: pointer;
 	transition: transform ease @dur / 2, opacity ease @dur / 2;
+
+	&:hover {
+		background-color: darken(#E9EFF2, 2%);
+	}
+
+	&:active {
+		background-color: darken(#E9EFF2, 4%);
+	}
 
 	&:after {
 		content: '';
@@ -40,13 +48,13 @@
 	}
 }
 
-.tool-dropdown.i-opened {
+.dropdown.isOpened {
 	.arrow {
 		transform: translateX(0);
 	}
 }
 
-.dropdown {
+.dropdownHolder {
 	position: absolute;
 	right: -5px;
 	top: -10px;

@@ -1,5 +1,4 @@
 import * as React from 'react';
-import * as CSSModules from 'react-css-modules';
 
 
 // Styles
@@ -13,10 +12,10 @@ interface IToolbarProps {
 
 
 // Component
-export const Toolbar = CSSModules(({
+export const Toolbar = ({
 	children = null
 }: IToolbarProps) => (
-	<div styleName="toolbar">
+	<div className={ styles.toolbar }>
 		{ children }
 	</div>
-), styles);
+);
