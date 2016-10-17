@@ -17,6 +17,11 @@
 		fill: @color-secondary;
 	}
 
+	svg,
+	svg path {
+		transition: fill ease @dur;
+	}
+
 	&:hover {
 		background-color: @color-hover;
 		.faster;
