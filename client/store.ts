@@ -7,8 +7,6 @@ const enhancers = compose(
 
 export const store = createStore(rootReducer, enhancers);
 
-declare var module: any;
-
 declare function require(path: string): any;
 if (module.hot) {
 	module.hot.accept('./reducers/', () => {
