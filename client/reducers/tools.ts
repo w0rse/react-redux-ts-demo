@@ -10,7 +10,7 @@ const INITIAL_STATE: Tools = {
 export const tools = handleActions<Tools, TToolsPayload>({
 	[SET_ACTIVE_TOOL]: (state: Tools, action: Action<TSetActiveTool>): Tools => (
 		Object.assign({}, state, {
-				activeTool: action.payload
+			activeTool: action.payload
 		})
 	)
 }, INITIAL_STATE);
