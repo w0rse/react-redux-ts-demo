@@ -1,7 +1,7 @@
-export type Tools = {
+export interface Tools {
 	activeTool: string
 };
 
-export type IState = {
+export interface IState {
 	tools: Tools
 };

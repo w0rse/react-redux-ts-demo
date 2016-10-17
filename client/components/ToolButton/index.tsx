@@ -8,11 +8,19 @@ const styles = require('./styles');
 
 
 // Types and Interfaces
-interface IToolButtonProps {
-	onClick?: () => void,
+export interface IToolButtonStateProps {
 	isActive?: boolean,
+};
+
+export interface IToolButtonDispatchProps {
+	onClick?: () => void,
+};
+
+export interface IToolButtonOwnProps {
 	children?: React.ReactChild,
 };
+
+export type IToolButtonProps = IToolButtonStateProps & IToolButtonDispatchProps & IToolButtonOwnProps;
 
 
 // Component

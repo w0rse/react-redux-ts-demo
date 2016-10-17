@@ -1,16 +1,22 @@
 import * as React from 'react';
-import * as CSSModules from 'react-css-modules';
+import { connect } from 'react-redux';
 
 import {
 	Page,
 	Toolbar,
-	ToolButton,
-	ToolDropdown,
 } from './components';
+
+import {
+	CrossToolButton,
+	ForkToolButton,
+	TextToolButton,
+	ShapeToolButton,
+	BrushToolButton,
+	LinesToolsDropdown,
+} from './containers';
 
 import * as SVG from './svg'
 
-const crossTool = { value: 'cross', label: 'Cross' };
 
 const toolsLines = [
 	{ value: 'trend-line',       icon: <SVG.ToolLine />,            label: 'Trend Line' },
@@ -24,21 +30,22 @@ const toolsLines = [
 	{ value: 'parallel-channel', icon: <SVG.ToolParallelChannel />, label: 'Parallel Channel' },
 ];
 
-export default () => (
+
+export default (props: any) => (
 	<Page>
 		<Toolbar>
-		
-			<ToolButton isActive={ true }><SVG.ToolCross /></ToolButton>
 
-			<ToolDropdown items={ toolsLines } />
+			<CrossToolButton><SVG.ToolCross /></CrossToolButton>
 
-			<ToolButton><SVG.ToolFork /></ToolButton>
+			<LinesToolsDropdown items={ toolsLines } />
 
-			<ToolButton><SVG.ToolText /></ToolButton>
+			<ForkToolButton><SVG.ToolFork /></ForkToolButton>
 
-			<ToolButton><SVG.ToolShape /></ToolButton>
+			<TextToolButton><SVG.ToolText /></TextToolButton>
 
-			<ToolButton><SVG.ToolBrush /></ToolButton>
+			<ShapeToolButton><SVG.ToolShape /></ShapeToolButton>
+
+			<BrushToolButton><SVG.ToolBrush /></BrushToolButton>
 
 		</Toolbar>
 	</Page>

@@ -16,11 +16,19 @@ type TToolDropdownItem = TDropdownMenuItem;
 
 type TToolDropdownSelectValue = TDropdownMenuValue;
 
-interface IToolDropdownProps {
-	items: TToolDropdownItem[],
+export interface IToolDropdownStateProps {
 	isActive?: boolean,
-	onSelect?: (value: TToolDropdownSelectValue) => void,
 };
+
+export interface IToolDropdownDispatchProps {
+	onSelect?: (index: TToolDropdownSelectValue) => void,
+};
+
+export interface IToolDropdownOwnProps {
+	items: TToolDropdownItem[],
+};
+
+export type IToolDropdownProps = IToolDropdownStateProps & IToolDropdownDispatchProps & IToolDropdownOwnProps;
 
 interface IToolDropdownState {
 	current?: number,
@@ -59,7 +67,10 @@ export class ToolDropdown extends Component<IToolDropdownProps, IToolDropdownSta
 	 * Handle button click event
 	 */
 	onClickButton = () => {
-		
+		this.props.onSelect(this.props.items[this.state.current].value);
+		if (this.state.isOpened) {
+			this.onCloseDropdown();
+		}
 	}
 
 	/**
