@@ -18,7 +18,6 @@ import {
 
 import * as SVG from './svg'
 
-
 const toolsLines = [
 	{ value: TOOLS_NAMES.TREND_LINE,       icon: <SVG.ToolLine />,            label: 'Trend Line' },
 	{ value: TOOLS_NAMES.TREND_ANGLE,      icon: <SVG.ToolTrendAngle />,      label: 'Trend Angle' },
@@ -30,7 +29,6 @@ const toolsLines = [
 	{ value: TOOLS_NAMES.EXTENDED,         icon: <SVG.ToolExtended />,        label: 'Extended' },
 	{ value: TOOLS_NAMES.PARALLEL_CHANNEL, icon: <SVG.ToolParallelChannel />, label: 'Parallel Channel' },
 ];
-
 
 export default (props: any) => (
 	<Page>
