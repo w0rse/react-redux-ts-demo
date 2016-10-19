@@ -17,6 +17,7 @@ export interface IToolButtonDispatchProps {
 };
 
 export interface IToolButtonOwnProps {
+	name?: string,
 	children?: React.ReactChild,
 };
 
@@ -25,6 +26,7 @@ export type IToolButtonProps = IToolButtonStateProps & IToolButtonDispatchProps 
 
 // Component
 export const ToolButton = ({
+	name,
 	isActive = false,
 	children = null,
 	onClick = () => {},

@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
+import { IState } from '../model';
+import { activeTool } from './activeTool';
 
-import { tools } from './tools';
-
-export const rootReducer = combineReducers({
-	tools,
+export const rootReducer = combineReducers<IState>({
+	activeTool,
 });

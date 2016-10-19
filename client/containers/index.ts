@@ -1,2 +1,2 @@
-export * from './ToolButtons';
-export * from './ToolDropdowns';
+export * from './ToolButton';
+export * from './ToolDropdown';

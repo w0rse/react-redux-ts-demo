@@ -9,14 +9,14 @@ const styles = require('./styles');
 
 
 // Types and Interfaces
-export type TDropdownMenuValue = string | number; 
+export type TDropdownMenuName = string | number; 
 
-export type TDropdownMenuItem = { value: TDropdownMenuValue, icon: React.ReactChild, label: React.ReactChild }; 
+export type TDropdownMenuItem = { name: TDropdownMenuName, icon: React.ReactChild, label: React.ReactChild }; 
 
 interface IDropdownMenuProps {
 	items: TDropdownMenuItem[],
 	isOpened: boolean,
-	onSelect?: (value: TDropdownMenuValue) => void,
+	onSelect?: (name: TDropdownMenuName) => void,
 };
 
 
@@ -42,7 +42,7 @@ export class DropdownMenu extends Component<IDropdownMenuProps, null> {
 			<div className={ classNames(styles.menu, { [styles.isOpened]: isOpened }) }>
 				{ items.map((item, i) => (
 					<div
-						key={ i.toString() + item.value.toString() }
+						key={ i.toString() + item.name.toString() }
 						onClick={ this.onClick(i) }
 						className={ styles.item }
 					>

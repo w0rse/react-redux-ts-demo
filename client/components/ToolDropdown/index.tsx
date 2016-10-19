@@ -3,7 +3,7 @@ import { Component } from 'react';
 import * as classNames from 'classnames';
 
 import { ClickOutside } from '../ClickOutside';
-import { TDropdownMenuValue, TDropdownMenuItem, DropdownMenu } from '../DropdownMenu';
+import { TDropdownMenuName, TDropdownMenuItem, DropdownMenu } from '../DropdownMenu';
 import { ToolButton } from '../ToolButton';
 
 
@@ -14,7 +14,7 @@ const styles = require('./styles');
 // Types and Interfaces
 type TToolDropdownItem = TDropdownMenuItem;
 
-type TToolDropdownSelectValue = TDropdownMenuValue;
+type TToolDropdownSelectValue = TDropdownMenuName;
 
 export interface IToolDropdownStateProps {
 	isActive?: boolean,
@@ -58,7 +58,7 @@ export class ToolDropdown extends Component<IToolDropdownProps, IToolDropdownSta
 	 */
 	select = (index: number) => {
 		const item = this.props.items[index];
-		this.props.onSelect(item.value);
+		this.props.onSelect(item.name);
 		this.setState({ current: index });
 		this.onCloseDropdown();
 	}
@@ -67,7 +67,7 @@ export class ToolDropdown extends Component<IToolDropdownProps, IToolDropdownSta
 	 * Handle button click event
 	 */
 	onClickButton = () => {
-		this.props.onSelect(this.props.items[this.state.current].value);
+		this.props.onSelect(this.props.items[this.state.current].name);
 		if (this.state.isOpened) {
 			this.onCloseDropdown();
 		}
