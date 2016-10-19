@@ -1,4 +1,3 @@
-// Tools
 export const TOOLS = {
 	CROSS: 'cross',
 
