@@ -14,10 +14,6 @@ import {
 
 import * as SVG from './svg'
 
-// const toolsLines = [
-
-// ];
-
 export default (props: any) => (
 	<Page>
 		<Toolbar>
