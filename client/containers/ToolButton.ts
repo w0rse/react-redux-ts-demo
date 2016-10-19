@@ -1,7 +1,6 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { IState, IActiveTool } from '../model';
-import { TOOLS_NAMES } from '../constants';
 
 import { setActiveTool } from '../actions';
 

@@ -1,5 +1,5 @@
 // Tools
-export const TOOLS_NAMES = {
+export const TOOLS = {
 	CROSS: 'cross',
 
 	// Lines
