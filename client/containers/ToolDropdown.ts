@@ -1,9 +1,7 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { IState, IActiveTool } from '../model';
-
 import { setActiveTool } from '../actions';
-
 import {
 	ToolDropdown, IToolDropdownStateProps, IToolDropdownDispatchProps, IToolDropdownOwnProps,
 } from '../components';
