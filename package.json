@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "test": "jest",
     "clean": "rimraf public",
     "build": "cross-env ENV=production webpack -p",
     "dev": "cross-env ENV=development node webpack-dev-server.js"
@@ -19,6 +20,7 @@
   },
   "devDependencies": {
     "@types/classnames": "0.0.31",
+    "@types/jest": "^15.1.32",
     "@types/react": "^0.14.39",
     "@types/react-dom": "^0.14.17",
     "@types/react-redux": "^4.4.32",
@@ -32,6 +34,7 @@
     "extract-text-webpack-plugin": "^1.0.1",
     "html-webpack-plugin": "^2.22.0",
     "jest": "^16.0.1",
+    "jest-cli": "^16.0.1",
     "less": "^2.7.1",
     "less-loader": "^2.2.3",
     "postcss-loader": "^0.13.0",
@@ -41,6 +44,7 @@
     "rimraf": "^2.5.4",
     "source-map-loader": "^0.1.5",
     "style-loader": "^0.13.1",
+    "ts-jest": "^0.1.8",
     "typescript": "^2.0.3",
     "webpack": "^1.13.2",
     "webpack-dev-server": "^1.16.2",
