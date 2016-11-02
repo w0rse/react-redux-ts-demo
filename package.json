@@ -51,9 +51,11 @@
     "webpack-hot-middleware": "^2.13.1"
   },
   "jest": {
-    "moduleFileExtensions": ["ts"],
+    "moduleFileExtensions": ["ts", "tsx", "js"],
+    "transform": {
+      "^.+\\.(ts|tsx)$": "<rootDir>/preprocessor.js"
+    },
     "testPathDirs": ["<rootDir>/client/reducers/"],
-    "scriptPreprocessor": "<rootDir>/preprocessor.js",
     "testRegex": ".*\\.test\\.ts$"
   }
 }
