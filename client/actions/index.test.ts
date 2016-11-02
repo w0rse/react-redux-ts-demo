@@ -2,7 +2,7 @@ import * as actions from './';
 import * as types from '../constants/actions';
 import { TOOLS } from '../constants/tools';
 
-describe('actions', () => {
+describe('Actions', () => {
 	it('Should create an action to set active tool', () => {
 		const tool = TOOLS.ARROW;
 		const expectedAction = {
