@@ -1,7 +1,8 @@
 {
   "name": "tv-react",
   "version": "1.0.0",
-  "description": "",
+  "description": "React Redux TypeScript Jest Demo",
+  "author": "Dmitry Podlesny",
   "main": "index.js",
   "scripts": {
     "test": "jest --no-cache",
@@ -9,7 +10,12 @@
     "build": "cross-env ENV=production webpack -p",
     "dev": "cross-env ENV=development node webpack-dev-server.js"
   },
-  "author": "",
+  "jest": {
+    "scriptPreprocessor": "<rootDir>/node_modules/typescript-babel-jest",
+    "moduleFileExtensions": [ "ts", "tsx", "js" ],
+    "testPathDirs": [ "<rootDir>/client/" ],
+    "testRegex": ".*\\.test\\.ts$"
+  },
   "dependencies": {
     "classnames": "^2.2.5",
     "react": "^15.3.2",
@@ -50,11 +56,5 @@
     "webpack": "^1.13.3",
     "webpack-dev-server": "^1.16.2",
     "webpack-hot-middleware": "^2.13.1"
-  },
-  "jest": {
-    "scriptPreprocessor": "<rootDir>/node_modules/typescript-babel-jest",
-    "moduleFileExtensions": [ "ts", "tsx", "js" ],
-    "testPathDirs": [ "<rootDir>/client/" ],
-    "testRegex": ".*\\.test\\.ts$"
   }
 }
