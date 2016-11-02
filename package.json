@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest --no-cache",
     "clean": "rimraf public",
     "build": "cross-env ENV=production webpack -p",
     "dev": "cross-env ENV=development node webpack-dev-server.js"
@@ -46,16 +46,15 @@
     "style-loader": "^0.13.1",
     "ts-jest": "^0.1.11",
     "typescript": "^2.0.6",
+    "typescript-babel-jest": "^0.1.7",
     "webpack": "^1.13.3",
     "webpack-dev-server": "^1.16.2",
     "webpack-hot-middleware": "^2.13.1"
   },
   "jest": {
-    "moduleFileExtensions": ["ts", "tsx", "js"],
-    "transform": {
-      "^.+\\.(ts|tsx)$": "<rootDir>/preprocessor.js"
-    },
-    "testPathDirs": ["<rootDir>/client/reducers/"],
+    "scriptPreprocessor": "<rootDir>/node_modules/typescript-babel-jest",
+    "moduleFileExtensions": [ "ts", "tsx", "js" ],
+    "testPathDirs": [ "<rootDir>/client/" ],
     "testRegex": ".*\\.test\\.ts$"
   }
 }
