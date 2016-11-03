@@ -15,7 +15,7 @@ const renderApp = (AppComponent: any) => {
 	ReactDOM.render((
 		<AppContainer>
 			<Provider store={ store }>
-				<App />
+				<AppComponent />
 			</Provider>
 		</AppContainer>
 	), rootEl);
