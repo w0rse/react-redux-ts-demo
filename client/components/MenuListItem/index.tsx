@@ -15,7 +15,7 @@ interface IMenuListItemProps {
 // Component
 export const MenuListItem = ({
 	icon,
-	children = null,
+	children,
 }: IMenuListItemProps) => (
 	<div className={ styles.item }>
 		{ icon ?

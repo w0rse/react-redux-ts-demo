@@ -13,7 +13,7 @@ interface IPageProps {
 
 // Component
 export const Page = ({
-	children = null
+	children
 }: IPageProps) => (
 	<div className={ styles.app }>
 		{ children }

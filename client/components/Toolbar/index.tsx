@@ -13,7 +13,7 @@ interface IToolbarProps {
 
 // Component
 export const Toolbar = ({
-	children = null
+	children
 }: IToolbarProps) => (
 	<div className={ styles.toolbar }>
 		{ children }

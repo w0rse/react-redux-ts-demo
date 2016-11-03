@@ -11,10 +11,10 @@
     "dev": "cross-env ENV=development node webpack-dev-server.js"
   },
   "jest": {
-    "scriptPreprocessor": "<rootDir>/node_modules/typescript-babel-jest",
-    "moduleFileExtensions": [ "ts", "tsx", "js" ],
+    "testRegex": "(.*\\.)?test\\.tsx?$",
     "testPathDirs": [ "<rootDir>/client/" ],
-    "testRegex": ".*\\.test\\.ts$"
+    "moduleFileExtensions": [ "ts", "tsx", "js" ],
+    "scriptPreprocessor": "<rootDir>/node_modules/typescript-babel-jest"
   },
   "dependencies": {
     "classnames": "^2.2.5",
