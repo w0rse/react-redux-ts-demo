@@ -5,15 +5,24 @@
   "author": "Dmitry Podlesny",
   "main": "index.js",
   "scripts": {
-    "test": "jest --no-cache",
+    "test": "jest",
     "clean": "rimraf public",
     "build": "cross-env ENV=production webpack -p",
     "dev": "cross-env ENV=development node webpack-dev-server.js"
   },
   "jest": {
     "testRegex": "(.*\\.)?test\\.tsx?$",
-    "testPathDirs": [ "<rootDir>/client/" ],
-    "moduleFileExtensions": [ "ts", "tsx", "js" ],
+    "testPathDirs": [
+      "<rootDir>/client/"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "moduleNameMapper": {
+      "^.+\\.(css|less)$": "identity-obj-proxy"
+    },
     "scriptPreprocessor": "<rootDir>/node_modules/typescript-babel-jest"
   },
   "dependencies": {
@@ -28,6 +37,7 @@
     "@types/classnames": "0.0.31",
     "@types/jest": "^15.1.32",
     "@types/react": "^0.14.44",
+    "@types/react-addons-test-utils": "^0.14.15",
     "@types/react-dom": "^0.14.18",
     "@types/react-redux": "^4.4.32",
     "@types/redux-actions": "^0.8.31",
@@ -35,15 +45,19 @@
     "awesome-typescript-loader": "^2.2.4",
     "babel": "^6.5.2",
     "babel-core": "^6.18.2",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-react": "^6.16.0",
     "cross-env": "^3.1.3",
     "css-loader": "^0.25.0",
     "extract-text-webpack-plugin": "^1.0.1",
     "html-webpack-plugin": "^2.24.1",
+    "identity-obj-proxy": "^3.0.0",
     "jest": "^16.0.2",
     "jest-cli": "^16.0.2",
     "less": "^2.7.1",
     "less-loader": "^2.2.3",
     "postcss-loader": "^1.1.0",
+    "react-addons-test-utils": "^15.3.2",
     "react-css-modules": "^3.7.10",
     "react-hot-loader": "^3.0.0-beta.6",
     "react-svg-loader": "^1.1.1",

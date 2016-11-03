@@ -4,7 +4,7 @@ import * as classNames from 'classnames';
 
 
 // Styles
-const styles = require('./styles');
+const styles = require('./styles.less');
 
 
 // Types and Interfaces
