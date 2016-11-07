@@ -1,19 +1,19 @@
 {
-	"typescript.tsdk": "./node_modules/typescript/lib",
-	"search.exclude": {
-			"jest": true,
-			"public": true,
-			"**/.awcache": true,
-			"**/.git": true,
-			"**/.vscode": true,
-			"**/node_modules": true
-	},
-	"files.exclude": {
-			"jest": true,
-			"public": true,
-			"**/.awcache": true,
-			"**/.git": true,
-			"**/.vscode": true,
-			"**/node_modules/": true
-	}
+  "typescript.tsdk": "./node_modules/typescript/lib",
+  "search.exclude": {
+    "jest": true,
+    "public": true,
+    "**/.awcache": true,
+    "**/.git": true,
+    "**/.vscode": true,
+    "**/node_modules": true
+  },
+  "files.exclude": {
+    "jest": true,
+    "public": true,
+    "**/.awcache": true,
+    "**/.git": true,
+    "**/.vscode": true,
+    "**/node_modules/": true
+  }
 }
