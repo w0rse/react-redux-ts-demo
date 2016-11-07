@@ -11,7 +11,7 @@
     "dev": "cross-env ENV=development node webpack-dev-server.js",
     "tslint": "tslint -c ./tslint.json 'client/**/*.ts?(x)'"
   },
-	"pre-commit": [ "tslint" ],
+  "pre-commit": [ "tslint" ],
   "jest": {
     "testRegex": "(.*\\.)?test\\.tsx?$",
     "testPathDirs": [
