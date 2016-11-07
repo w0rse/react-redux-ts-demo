@@ -68,7 +68,7 @@ module.exports = {
 				test: /\.tsx?$/,
 				loaders: [
 					'react-hot-loader/webpack',
-					'awesome-typescript-loader?forkChecker=true&useBabel=true&useCache=true',
+					'awesome-typescript-loader?forkChecker=true&useCache=true',
 				],
 				exclude: path.resolve(__dirname, 'node_modules'),
 				include: path.resolve(__dirname, 'client'),
