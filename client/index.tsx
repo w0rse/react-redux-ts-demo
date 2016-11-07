@@ -20,8 +20,8 @@ const renderApp = (AppComponent: any) => {
 				</Provider>
 			</AppContainer>
 		),
-		rootEl)
-	;
+		rootEl
+	);
 };
 
 renderApp(App);
