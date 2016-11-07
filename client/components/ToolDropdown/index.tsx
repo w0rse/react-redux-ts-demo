@@ -17,31 +17,27 @@ type TToolDropdownItem = TDropdownMenuItem;
 type TToolDropdownSelectValue = TDropdownMenuName;
 
 export interface IToolDropdownStateProps {
-	isActive?: boolean,
+	isActive?: boolean;
 };
 
 export interface IToolDropdownDispatchProps {
-	onSelect?: (index: TToolDropdownSelectValue) => void,
+	onSelect?: (index: TToolDropdownSelectValue) => void;
 };
 
 export interface IToolDropdownOwnProps {
-	items: TToolDropdownItem[],
+	items: TToolDropdownItem[];
 };
 
 export type IToolDropdownProps = IToolDropdownStateProps & IToolDropdownDispatchProps & IToolDropdownOwnProps;
 
 interface IToolDropdownState {
-	current?: number,
-	isOpened?: boolean,
+	current?: number;
+	isOpened?: boolean;
 };
 
 
 // Component
 export class ToolDropdown extends Component<IToolDropdownProps, IToolDropdownState> {
-	static defaultProps = {
-		onSelect: () => {},
-	}
-
 	/**
 	 * Class constructor
 	 */
@@ -105,7 +101,7 @@ export class ToolDropdown extends Component<IToolDropdownProps, IToolDropdownSta
 		const { current, isOpened } = this.state;
 		const { isActive, items } = this.props;
 		const currentItem: TToolDropdownItem = items[current];
-		return (	
+		return (
 			<ClickOutside onClickOutside={ this.onCloseDropdown }>
 				<div className={ classNames(styles.dropdown, { [styles.isOpened]: isOpened }) }>
 					<div className={ styles.button }>

@@ -5,28 +5,31 @@ import { AppContainer } from 'react-hot-loader';
 
 import { store } from './store';
 
-import App from './App';
+import { App } from './App';
 
-const styles = require('./styles/global');
+require('./styles/global');
 
 const rootEl = document.getElementById('root');
 
 const renderApp = (AppComponent: any) => {
-	ReactDOM.render((
-		<AppContainer>
-			<Provider store={ store }>
-				<AppComponent />
-			</Provider>
-		</AppContainer>
-	), rootEl);
-}
+	ReactDOM.render(
+		(
+			<AppContainer>
+				<Provider store={ store }>
+					<AppComponent />
+				</Provider>
+			</AppContainer>
+		),
+		rootEl)
+	;
+};
 
 renderApp(App);
 
 // Hot Module Replacement API
 if (module.hot) {
 	module.hot.accept('./App', () => {
-		const NextApp = require('./App').default;
+		const NextApp = require('./App').App;
 		renderApp(NextApp);
 	});
 }

@@ -6,8 +6,8 @@ describe('Actions', () => {
 	it('Should create an action to set active tool', () => {
 		const tool = TOOLS.ARROW;
 		const expectedAction = {
+			payload: tool,
 			type: types.SET_ACTIVE_TOOL,
-			payload: tool
 		};
 
 		expect(actions.setActiveTool(tool)).toEqual(expectedAction);

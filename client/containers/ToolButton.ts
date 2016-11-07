@@ -7,10 +7,15 @@ import {
 } from '../components';
 
 export const ToolButtonContainer = connect<IToolButtonStateProps, IToolButtonDispatchProps, IToolButtonOwnProps>(
-	(state: IState, ownProps: IToolButtonOwnProps) => ({
-		isActive: state.activeTool === ownProps.name
-	}),
-	(dispatch: Redux.Dispatch<IActiveTool>, ownProps: IToolButtonOwnProps) => bindActionCreators({
-		onClick: () => setActiveTool(ownProps.name)
-	}, dispatch)
+	(state: IState, ownProps: IToolButtonOwnProps) => (
+		{
+			isActive: state.activeTool === ownProps.name,
+		}
+	),
+	(dispatch: Redux.Dispatch<IActiveTool>, ownProps: IToolButtonOwnProps) => bindActionCreators(
+		{
+			onClick: () => setActiveTool(ownProps.name),
+		},
+		dispatch
+	)
 )(ToolButton);

@@ -11,19 +11,19 @@ describe('Active Tool Reducer', () => {
 			reducer(
 				'',
 				{
+					payload: TOOLS.LINE_ARROW,
 					type: SET_ACTIVE_TOOL,
-					payload: TOOLS.ARROW
 				}
 			)
-		).toEqual(TOOLS.ARROW);
+		).toEqual(TOOLS.LINE_ARROW);
 
 		// Set BRUSH
 		expect(
 			reducer(
-				TOOLS.ARROW,
+				TOOLS.LINE_ARROW,
 				{
+					payload: TOOLS.BRUSH,
 					type: SET_ACTIVE_TOOL,
-					payload: TOOLS.BRUSH
 				}
 			)
 		).toEqual(TOOLS.BRUSH);

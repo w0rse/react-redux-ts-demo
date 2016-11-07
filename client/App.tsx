@@ -11,24 +11,24 @@ import {
 	ToolDropdownContainer,
 } from './containers';
 
-import * as SVG from './svg'
+import * as SVG from './svg';
 
-export default (props: any) => (
+export const App = (props: any) => (
 	<Page>
 		<Toolbar>
 
 			<ToolButtonContainer name={ TOOLS.CROSS }><SVG.ToolCross /></ToolButtonContainer>
 
 			<ToolDropdownContainer items={[
-				{ name: TOOLS.TREND_LINE,       icon: <SVG.ToolLine />,            label: 'Trend Line' },
-				{ name: TOOLS.TREND_ANGLE,      icon: <SVG.ToolTrendAngle />,      label: 'Trend Angle' },
-				{ name: TOOLS.HORIZONTAL_LINE,  icon: <SVG.ToolHorizontalLine />,  label: 'Horizontal Line' },
-				{ name: TOOLS.HORIZONTAL_RAY,   icon: <SVG.ToolHorizontalRay />,   label: 'Horizontal Ray' },
-				{ name: TOOLS.VERTICAL_LINE,    icon: <SVG.ToolVerticalLine />,    label: 'Vertical Line' },
-				{ name: TOOLS.ARROW,            icon: <SVG.ToolArrow />,           label: 'Arrow' },
-				{ name: TOOLS.RAY,              icon: <SVG.ToolRay />,             label: 'Ray' },
-				{ name: TOOLS.EXTENDED,         icon: <SVG.ToolExtended />,        label: 'Extended' },
-				{ name: TOOLS.PARALLEL_CHANNEL, icon: <SVG.ToolParallelChannel />, label: 'Parallel Channel' },
+				{ icon: <SVG.ToolLine />,            label: 'Trend Line',       name: TOOLS.LINE_TREND            },
+				{ icon: <SVG.ToolTrendAngle />,      label: 'Trend Angle',      name: TOOLS.LINE_TREND_ANGLE      },
+				{ icon: <SVG.ToolHorizontalLine />,  label: 'Horizontal Line',  name: TOOLS.LINE_HORIZONTAL       },
+				{ icon: <SVG.ToolHorizontalRay />,   label: 'Horizontal Ray',   name: TOOLS.LINE_HORIZONTAL_RAY   },
+				{ icon: <SVG.ToolVerticalLine />,    label: 'Vertical Line',    name: TOOLS.LINE_VERTICAL         },
+				{ icon: <SVG.ToolArrow />,           label: 'Arrow',            name: TOOLS.LINE_ARROW            },
+				{ icon: <SVG.ToolRay />,             label: 'Ray',              name: TOOLS.LINE_RAY              },
+				{ icon: <SVG.ToolExtended />,        label: 'Extended',         name: TOOLS.LINE_EXTENDED         },
+				{ icon: <SVG.ToolParallelChannel />, label: 'Parallel Channel', name: TOOLS.LINE_PARALLEL_CHANNEL },
 			]} />
 
 			<ToolButtonContainer name={ TOOLS.FORK }><SVG.ToolFork /></ToolButtonContainer>

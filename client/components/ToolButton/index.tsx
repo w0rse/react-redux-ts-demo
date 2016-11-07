@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { Component } from 'react';
 import * as classNames from 'classnames';
 
 
@@ -9,16 +8,16 @@ const styles = require('./styles.less');
 
 // Types and Interfaces
 export interface IToolButtonStateProps {
-	isActive?: boolean,
+	isActive?: boolean;
 };
 
 export interface IToolButtonDispatchProps {
-	onClick?: () => void,
+	onClick?: () => void;
 };
 
 export interface IToolButtonOwnProps {
-	name?: string,
-	children?: React.ReactChild,
+	name?: string;
+	children?: React.ReactChild;
 };
 
 export type IToolButtonProps = IToolButtonStateProps & IToolButtonDispatchProps & IToolButtonOwnProps;
@@ -29,7 +28,7 @@ export const ToolButton = ({
 	name,
 	children,
 	isActive = false,
-	onClick = () => {},
+	onClick,
 }: IToolButtonProps) => (
 	<div onClick={ onClick } className={ classNames(styles.button, { [styles.isActive]: isActive }) }>
 		{ children }

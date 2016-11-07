@@ -7,13 +7,13 @@ const styles = require('./styles');
 
 // Types and Interfaces
 interface IToolbarProps {
-	children?: React.ReactChild
+	children?: React.ReactChild;
 };
 
 
 // Component
 export const Toolbar = ({
-	children
+	children,
 }: IToolbarProps) => (
 	<div className={ styles.toolbar }>
 		{ children }

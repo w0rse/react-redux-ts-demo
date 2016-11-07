@@ -8,8 +8,8 @@ const renderer: TestUtils.ShallowRenderer = TestUtils.createRenderer();
 
 function setup({ isActive = false }: { isActive?: boolean }) {
 	const props: IToolButtonProps = {
-		name: TOOLS.CROSS,
 		isActive: isActive,
+		name: TOOLS.CROSS,
 		onClick: jest.fn(),
 	};
 
@@ -17,7 +17,7 @@ function setup({ isActive = false }: { isActive?: boolean }) {
 
 	return {
 		el: renderer.getRenderOutput(),
-		props
+		props,
 	};
 }
 

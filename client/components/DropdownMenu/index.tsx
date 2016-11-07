@@ -1,6 +1,4 @@
 import * as React from 'react';
-import { Component } from 'react';
-import * as ReactDOM from 'react-dom';
 import * as classNames from 'classnames';
 import { MenuListItem } from '../MenuListItem';
 
@@ -9,23 +7,19 @@ const styles = require('./styles');
 
 
 // Types and Interfaces
-export type TDropdownMenuName = string | number; 
+export type TDropdownMenuName = string | number;
 
-export type TDropdownMenuItem = { name: TDropdownMenuName, icon: React.ReactChild, label: React.ReactChild }; 
+export type TDropdownMenuItem = { name: TDropdownMenuName, icon: React.ReactChild, label: React.ReactChild };
 
 interface IDropdownMenuProps {
-	items: TDropdownMenuItem[],
-	isOpened: boolean,
-	onSelect?: (name: TDropdownMenuName) => void,
+	items: TDropdownMenuItem[];
+	isOpened: boolean;
+	onSelect?: (name: TDropdownMenuName) => void;
 };
 
 
 // Component
-export class DropdownMenu extends Component<IDropdownMenuProps, null> {
-	static defaultProps = {
-		onSelect: () => {},
-	}
-
+export class DropdownMenu extends React.Component<IDropdownMenuProps, null> {
 	/**
 	 * Handle click event
 	 */

@@ -7,13 +7,13 @@ const styles = require('./styles');
 
 // Types and Interfaces
 interface IPageProps {
-	children?: React.ReactChild
+	children?: React.ReactChild;
 };
 
 
 // Component
 export const Page = ({
-	children
+	children,
 }: IPageProps) => (
 	<div className={ styles.app }>
 		{ children }

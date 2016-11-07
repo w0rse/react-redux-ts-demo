@@ -7,8 +7,8 @@ const styles = require('./styles');
 
 // Types and Interfaces
 interface IMenuListItemProps {
-	icon?: React.ReactChild,
-	children?: React.ReactChild
+	icon?: React.ReactChild;
+	children?: React.ReactChild;
 };
 
 

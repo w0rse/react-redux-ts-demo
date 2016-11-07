@@ -59,6 +59,17 @@ module.exports = {
 	].concat(sourceMap),
 
 	module: {
+		preLoaders: [
+			{
+				test: /\.tsx?$/,
+				loader: 'tslint',
+				include: path.resolve(__dirname, 'client'),
+			}, {
+				// All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
+				test: /\.js$/,
+				loader: 'source-map-loader'
+			}
+		],
 		loaders: [
 			{
 				test: /\.tsx?$/,
@@ -88,16 +99,8 @@ module.exports = {
 				loader: 'react-svg?es5=1',
 			},
 		],
+	},
 
-		preLoaders: [
-			{
-				// All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
-				test: /\.js$/,
-				loader: 'source-map-loader'
-			},
-		],
-	}, 
-	
 	postcss: function() {
 		return [
 			autoprefixer({ browsers: [ 'last 2 versions' ] })
