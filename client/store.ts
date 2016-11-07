@@ -1,14 +1,22 @@
-import { createStore, compose } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import { rootReducer } from './reducers';
 
-const enhancers = compose(
-	window.devToolsExtension ? window.devToolsExtension() : (f: any) => f
-);
+let middlewares: Redux.Middleware[] = [];
 
-export const store = createStore(rootReducer, enhancers);
+if (process.env.NODE_ENV === 'development') {
+	const createLogger = require('redux-logger');
+	const logger = createLogger();
+	middlewares.push(logger);
+}
 
-if (module.hot) {
-	module.hot.accept('./reducers/', () => {
+const composeEnhancers = (process.env.NODE_ENV === 'development' && typeof window === 'object' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
+
+export const store = createStore(rootReducer, composeEnhancers(
+	applyMiddleware(...middlewares)
+));
+
+if ((module as any).hot) {
+	(module as any).hot.accept('./reducers/', () => {
 		const nextRootReducer = require('./reducers/index').rootReducer;
 		store.replaceReducer(nextRootReducer);
 	});

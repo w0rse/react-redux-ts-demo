@@ -19,7 +19,7 @@ module.exports = {
 	output: {
 		path: path.resolve(__dirname, './build'),
 		filename: '[name].js',
-		publicPath: '/static/',
+		publicPath: '/',
 		sourceMapFilename: '[name].js.map',
 		chunkFilename: '[id].chunk.js',
 	},

@@ -27,8 +27,8 @@ const renderApp = (AppComponent: any) => {
 renderApp(App);
 
 // Hot Module Replacement API
-if (module.hot) {
-	module.hot.accept('./App', () => {
+if ((module as any).hot) {
+	(module as any).hot.accept('./App', () => {
 		const NextApp = require('./App').App;
 		renderApp(NextApp);
 	});
