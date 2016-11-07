@@ -4,7 +4,7 @@ import { TOOLS } from '../constants/tools';
 
 describe('Actions', () => {
 	it('Should create an action to set active tool', () => {
-		const tool = TOOLS.ARROW;
+		const tool = TOOLS.LINE_ARROW;
 		const expectedAction = {
 			payload: tool,
 			type: types.SET_ACTIVE_TOOL,
