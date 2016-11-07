@@ -24,7 +24,7 @@ module.exports = {
 		chunkFilename: '[id].chunk.js',
 	},
 
-	devtool: 'cheap-module-eval-source-map',
+	devtool: dev ? 'cheap-module-eval-source-map' : false,
 
 	resolve: {
 		extensions: [ '', '.js', '.jsx', '.ts', '.tsx', '.less', '.svg', ],
