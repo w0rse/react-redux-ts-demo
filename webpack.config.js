@@ -1,30 +1,23 @@
-'use strict';
-
 var path = require('path');
 var webpack = require('webpack');
 var autoprefixer = require('autoprefixer');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var ForkCheckerPlugin = require('awesome-typescript-loader').ForkCheckerPlugin;
 
-var applicationEntries = process.env.ENV === 'development'
-	? [
+var dev = process.env.NODE_ENV !== 'production';
+
+module.exports = {
+	entry: dev ? [
 		'react-hot-loader/patch',
 		'webpack-dev-server/client?http://localhost:8090',
 		'webpack/hot/only-dev-server',
-	] : [ ];
-
-var sourceMap = process.env.TEST || process.env.ENV !== 'production'
-	? [ new webpack.SourceMapDevToolPlugin({ filename: null, test: /\.tsx?$/ }) ]
-	: [ ];
-
-module.exports = {
-	entry: [].concat(
-		applicationEntries,
-		[ './client/index.tsx' ]
-	),
+		'./client/index.tsx',
+	] : [
+		'./client/index.tsx',
+	],
 
 	output: {
-		path: path.resolve(__dirname, './public'),
+		path: path.resolve(__dirname, './build'),
 		filename: '[name].js',
 		publicPath: '/static/',
 		sourceMapFilename: '[name].js.map',
@@ -34,29 +27,29 @@ module.exports = {
 	devtool: 'cheap-module-eval-source-map',
 
 	resolve: {
-		extensions: [
-			'',
-			'.js',
-			'.jsx',
-			'.ts',
-			'.tsx',
-			'.less',
-			'.svg',
-		],
+		extensions: [ '', '.js', '.jsx', '.ts', '.tsx', '.less', '.svg', ],
 	},
 
 	plugins: [
+		new ForkCheckerPlugin(),
 		new webpack.DefinePlugin({
 			'process.env': {
-				'NODE_ENV': JSON.stringify('production')
+				'NODE_ENV': JSON.stringify(dev ? 'development' : 'production'),
+			}
+		})
+	].concat(dev ? [
+		new webpack.NoErrorsPlugin(),
+		new webpack.HotModuleReplacementPlugin(),
+		new webpack.SourceMapDevToolPlugin({ filename: null, test: /\.tsx?$/ }),
+	] : [
+		new ExtractTextPlugin('[name].css'),
+		new webpack.optimize.OccurenceOrderPlugin(),
+		new webpack.optimize.UglifyJsPlugin({
+			compress: {
+				warnings: false
 			}
 		}),
-		new webpack.optimize.OccurenceOrderPlugin(),
-		new webpack.HotModuleReplacementPlugin(),
-		new webpack.NoErrorsPlugin(),
-		new ForkCheckerPlugin(),
-		// new ExtractTextPlugin('[name].css'),
-	].concat(sourceMap),
+	]),
 
 	module: {
 		preLoaders: [
@@ -67,7 +60,7 @@ module.exports = {
 			}, {
 				// All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
 				test: /\.js$/,
-				loader: 'source-map-loader'
+				loader: 'source-map-loader',
 			}
 		],
 		loaders: [
@@ -75,25 +68,20 @@ module.exports = {
 				test: /\.tsx?$/,
 				loaders: [
 					'react-hot-loader/webpack',
-					'awesome-typescript-loader?forkChecker=true&useBabel=true&useCache=true'
+					'awesome-typescript-loader?forkChecker=true&useBabel=true&useCache=true',
 				],
 				exclude: path.resolve(__dirname, 'node_modules'),
 				include: path.resolve(__dirname, 'client'),
 			}, {
 				test: /\.less?$/,
-				loaders: [
-					'style?sourceMap',
-					'css?modules&importLoaders=1&localIdentName=[local]-[hash:base64:8]]',
-					'postcss',
-					'less',
-					// Add : resolve-url, production mode
-				],
-				// For production:
-				// loader: ExtractTextPlugin.extract(
-				// 	'style?sourceMap',
-				// 	'css?modules&importLoaders=1&localIdentName=[local]-[hash:base64:8]]!postcss!less' // Add : resolve-url, production mode
-				// ),
+				loader: dev ?
+					'style?sourceMap!css?modules&importLoaders=1&localIdentName=[local]-[hash:base64:8]]!postcss!less' :
+					ExtractTextPlugin.extract(
+						'style',
+						'css?modules&importLoaders=1&localIdentName=[local]-[hash:base64:8]]!postcss!less'
+					),
 				exclude: path.resolve(__dirname, 'node_modules'),
+				// Add : resolve-url,
 			}, {
 				test: /\.svg$/,
 				loader: 'react-svg?es5=1',
@@ -103,7 +91,7 @@ module.exports = {
 
 	postcss: function() {
 		return [
-			autoprefixer({ browsers: [ 'last 2 versions' ] })
+			autoprefixer({ browsers: [ 'last 2 versions' ] }),
 		]
 	},
 

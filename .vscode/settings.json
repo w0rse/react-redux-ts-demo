@@ -10,7 +10,7 @@
   },
   "files.exclude": {
     "jest": true,
-    "public": true,
+    "build": true,
     "**/.awcache": true,
     "**/.git": true,
     "**/.vscode": true,

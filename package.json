@@ -6,10 +6,12 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "clean": "rimraf public",
-    "build": "cross-env ENV=production webpack --progress --colors --no-info",
-    "dev": "cross-env ENV=development node webpack-dev-server.js",
-    "tslint": "tslint -c ./tslint.json 'client/**/*.ts?(x)'"
+    "clean": "rimraf build",
+    "prebuild": "npm run clean",
+    "build": "cross-env NODE_ENV=production webpack --progress --colors --no-info",
+    "dev": "cross-env node webpack-dev-server.js",
+    "tslint": "tslint -c ./tslint.json 'client/**/*.ts?(x)'",
+    "start": "npm run dev"
   },
   "pre-commit": [ "tslint" ],
   "jest": {
