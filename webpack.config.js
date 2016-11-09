@@ -3,6 +3,7 @@ var webpack = require('webpack');
 var autoprefixer = require('autoprefixer');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var ForkCheckerPlugin = require('awesome-typescript-loader').ForkCheckerPlugin;
+var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 var dev = process.env.NODE_ENV !== 'production';
 
@@ -49,6 +50,11 @@ module.exports = {
 				warnings: false
 			}
 		}),
+		new BundleAnalyzerPlugin({
+			openAnalyzer: false,
+			analyzerMode: 'static',
+			reportFilename: '../analyze/report.html',
+		})
 	]),
 
 	module: {
