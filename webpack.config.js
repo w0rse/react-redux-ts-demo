@@ -1,6 +1,5 @@
 var path = require('path');
 var webpack = require('webpack');
-var autoprefixer = require('autoprefixer');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var ForkCheckerPlugin = require('awesome-typescript-loader').ForkCheckerPlugin;
 var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
@@ -97,8 +96,11 @@ module.exports = {
 
 	postcss: function() {
 		return [
-			autoprefixer({ browsers: [ 'last 2 versions' ] }),
-		]
+			require('autoprefixer')({ browsers: [ 'last 2 versions' ] }),
+		].concat(dev ? [
+		] : [
+			require('cssnano'),
+		])
 	},
 
 };
