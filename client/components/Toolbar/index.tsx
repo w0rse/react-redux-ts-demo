@@ -12,10 +12,12 @@ interface IToolbarProps {
 
 
 // Component
-export const Toolbar = ({
+export function Toolbar({
 	children,
-}: IToolbarProps) => (
-	<div className={ styles.toolbar }>
-		{ children }
-	</div>
-);
+}: IToolbarProps) {
+	return (
+		<div className={ styles.toolbar }>
+			{ children }
+		</div>
+	);
+};

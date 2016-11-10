@@ -13,14 +13,16 @@ interface IMenuListItemProps {
 
 
 // Component
-export const MenuListItem = ({
+export function MenuListItem({
 	icon,
 	children,
-}: IMenuListItemProps) => (
-	<div className={ styles.item }>
-		{ icon ?
-			<div className={ styles.icon }>{ icon }</div>
-		: null }
-		<div>{ children }</div>
-	</div>
-);
+}: IMenuListItemProps) {
+	return (
+		<div className={ styles.item }>
+			{ icon ?
+				<div className={ styles.icon }>{ icon }</div>
+			: null }
+			<div>{ children }</div>
+		</div>
+	);
+};

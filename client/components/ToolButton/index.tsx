@@ -24,13 +24,15 @@ export type IToolButtonProps = IToolButtonStateProps & IToolButtonDispatchProps 
 
 
 // Component
-export const ToolButton = ({
+export function ToolButton({
 	name,
 	children,
 	isActive = false,
 	onClick,
-}: IToolButtonProps) => (
-	<div onClick={ onClick } className={ classNames(styles.button, { [styles.isActive]: isActive }) }>
-		{ children }
-	</div>
-);
+}: IToolButtonProps) {
+	return (
+		<div onClick={ onClick } className={ classNames(styles.button, { [styles.isActive]: isActive }) }>
+			{ children }
+		</div>
+	);
+};

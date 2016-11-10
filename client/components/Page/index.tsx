@@ -12,10 +12,12 @@ interface IPageProps {
 
 
 // Component
-export const Page = ({
+export function Page({
 	children,
-}: IPageProps) => (
-	<div className={ styles.app }>
-		{ children }
-	</div>
-);
+}: IPageProps) {
+	return (
+		<div className={ styles.app }>
+			{ children }
+		</div>
+	);
+};
