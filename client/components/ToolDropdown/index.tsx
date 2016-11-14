@@ -17,6 +17,7 @@ type TToolDropdownItem = TDropdownMenuItem;
 type TToolDropdownSelectValue = TDropdownMenuName;
 
 export interface IToolDropdownStateProps {
+	current?: number | false;
 	isActive?: boolean;
 };
 
@@ -41,10 +42,10 @@ export class ToolDropdown extends Component<IToolDropdownProps, IToolDropdownSta
 	/**
 	 * Class constructor
 	 */
-	constructor() {
-		super();
+	constructor(props: IToolDropdownProps) {
+		super(props);
 		this.state = {
-			current: 0,
+			current: this.props.current || 0,
 			isOpened: false,
 		};
 	}

@@ -7,11 +7,13 @@ import {
 } from '../components';
 
 export const ToolDropdownContainer = connect<IToolDropdownStateProps, IToolDropdownDispatchProps, IToolDropdownOwnProps>(
-	(state: IState, ownProps: IToolDropdownOwnProps) => (
-		{
-			isActive: ownProps.items.map(item => item.name).indexOf(state.activeTool) !== -1,
-		}
-	),
+	(state: IState, ownProps: IToolDropdownOwnProps) => {
+		const toolIndex: number = ownProps.items.map(item => item.name).indexOf(state.activeTool);
+		return {
+			current: toolIndex !== -1 ? toolIndex : (false as false),
+			isActive: toolIndex !== -1,
+		};
+	},
 	(dispatch: Redux.Dispatch<IActiveTool>, ownProps: IToolDropdownOwnProps) => bindActionCreators(
 		{
 			onSelect: (name) => setActiveTool(name),
