@@ -5,6 +5,20 @@
 	align-items: center;
 	padding: 10px 25px 10px 20px;
 	min-width: 75px;
+	background-color: #fff;
+	cursor: pointer;
+	white-space: nowrap;
+	transition: background-color ease @dur;
+
+	&:hover {
+		background-color: @color-hover;
+		.faster;
+	}
+
+	&:active {
+		background-color: @color-active;
+		.faster;
+	}
 }
 
 .icon {

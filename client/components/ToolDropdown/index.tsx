@@ -8,7 +8,7 @@ import { ToolButton } from '../ToolButton';
 
 
 // Styles
-const styles = require('./styles');
+const s = require('./styles');
 
 
 // Types and Interfaces
@@ -53,7 +53,7 @@ export class ToolDropdown extends Component<IToolDropdownProps, IToolDropdownSta
 	/**
 	 * Select tool
 	 */
-	select = (index: number) => {
+	handleSelect = (index: number) => {
 		const item = this.props.items[index];
 		this.props.onSelect(item.name);
 		this.setState({ current: index });
@@ -63,7 +63,7 @@ export class ToolDropdown extends Component<IToolDropdownProps, IToolDropdownSta
 	/**
 	 * Handle button click event
 	 */
-	onClickButton = () => {
+	handleClickButton = () => {
 		this.props.onSelect(this.props.items[this.state.current].name);
 		if (this.state.isOpened) {
 			this.onCloseDropdown();
@@ -73,7 +73,7 @@ export class ToolDropdown extends Component<IToolDropdownProps, IToolDropdownSta
 	/**
 	 * Handle arrow click event
 	 */
-	onClickArrow = () => {
+	handleClickArrow = () => {
 		if (!this.state.isOpened) {
 			this.onOpenDropdown();
 		} else {
@@ -104,16 +104,16 @@ export class ToolDropdown extends Component<IToolDropdownProps, IToolDropdownSta
 		const currentItem: TToolDropdownItem = items[current];
 		return (
 			<ClickOutside onClickOutside={ this.onCloseDropdown }>
-				<div className={ classNames(styles.dropdown, { [styles.isOpened]: isOpened }) }>
-					<div className={ styles.button }>
-						<div className={ styles.arrow } onClick={ this.onClickArrow }></div>
-						<ToolButton onClick={ this.onClickButton } isActive={ isActive }>{ currentItem.icon }</ToolButton>
+				<div className={ classNames(s.dropdown, { [s.isOpened]: isOpened }) }>
+					<div className={ s.button }>
+						<div className={ s.arrow } onClick={ this.handleClickArrow }></div>
+						<ToolButton onClick={ this.handleClickButton } isActive={ isActive }>{ currentItem.icon }</ToolButton>
 					</div>
-					<div className={ styles.dropdownHolder }>
+					<div className={ s.dropdownHolder }>
 						<DropdownMenu
 							items={ items }
 							isOpened={ isOpened }
-							onSelect={ this.select }
+							onSelect={ this.handleSelect }
 						/>
 					</div>
 				</div>

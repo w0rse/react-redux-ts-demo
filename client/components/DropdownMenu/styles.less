@@ -1,5 +1,12 @@
 @import '../../styles/utils';
 
+.item {
+	opacity: 0;
+	transform: translateY(-10px);
+	transition-delay: 0.001s;
+	transition: opacity @ease-out-cubic @dur * 1.25, transform @ease-out-cubic @dur;
+}
+
 .menu {
 	display: none;
 	position: absolute;
@@ -11,25 +18,26 @@
 	border-radius: 3px;
 	box-shadow: rgba(0, 0, 0, .2) 0px 1px 2px 1px;
 	user-select: none;
+	pointer-events: none;
+	transform-origin: 10px 10px;
 
-	&.isOpened {
+	&.isOpening,
+	&.isOpened,
+	&.isClosing {
 		display: block;
 	}
-}
 
-.item {
-	cursor: pointer;
-	white-space: nowrap;
-	background-color: #fff;
-	transition: background-color ease @dur;
+	&.isOpened {
+		pointer-events: initial;
+	}
 
-	&:hover {
-		background-color: @color-hover;
+	&.isClosing .item {
+		transform: translateY(0);
 		.faster;
 	}
 
-	&:active {
-		background-color: @color-active;
-		.faster;
+	&.isItemsShowing .item {
+		opacity: 1;
+		transform: translateY(0);
 	}
 }
