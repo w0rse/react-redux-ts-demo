@@ -2,7 +2,7 @@ import * as React from 'react';
 
 
 // Styles
-const styles = require('./styles');
+const s = require('./styles');
 
 
 // Types and Interfaces
@@ -18,10 +18,10 @@ export function MenuListItem({
 	children,
 }: IMenuListItemProps) {
 	return (
-		<div className={ styles.item }>
-			{ icon ?
-				<div className={ styles.icon }>{ icon }</div>
-			: null }
+		<div className={ s.item }>
+			{ icon &&
+				<div className={ s.icon }>{ icon }</div>
+			}
 			<div>{ children }</div>
 		</div>
 	);

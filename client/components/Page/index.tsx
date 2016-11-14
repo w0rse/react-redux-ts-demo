@@ -2,7 +2,7 @@ import * as React from 'react';
 
 
 // Styles
-const styles = require('./styles');
+const s = require('./styles');
 
 
 // Types and Interfaces
@@ -16,7 +16,7 @@ export function Page({
 	children,
 }: IPageProps) {
 	return (
-		<div className={ styles.app }>
+		<div className={ s.app }>
 			{ children }
 		</div>
 	);

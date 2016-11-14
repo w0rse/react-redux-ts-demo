@@ -3,7 +3,7 @@ import * as classNames from 'classnames';
 
 
 // Styles
-const styles = require('./styles.less');
+const s = require('./styles.less');
 
 
 // Types and Interfaces
@@ -31,7 +31,7 @@ export function ToolButton({
 	onClick,
 }: IToolButtonProps) {
 	return (
-		<div onClick={ onClick } className={ classNames(styles.button, { [styles.isActive]: isActive }) }>
+		<div onClick={ onClick } className={ classNames(s.button, { [s.isActive]: isActive }) }>
 			{ children }
 		</div>
 	);
