@@ -43,7 +43,7 @@ export class DropdownMenu extends React.Component<IDropdownMenuProps, null> {
 				: spring(0.85, { damping: 25, stiffness: 250 }),
 			scaleY: isOpened
 				? spring(1,   { damping: 35, stiffness: 400 })
-				: spring(0.6, { damping: 55, stiffness: 250 }),
+				: spring(0.75, { damping: 55, stiffness: 250 }),
 		};
 	}
 
@@ -73,7 +73,7 @@ export class DropdownMenu extends React.Component<IDropdownMenuProps, null> {
 								key={ i }
 								className={ s.item }
 								onClick={ this.handleClick(i) }
-								style={{ transitionDelay: (eases.quadIn(i / items.length) * 175) + 'ms' }}
+								style={{ transitionDelay: (eases.quadIn(i / items.length) * 150) + 'ms' }}
 							>
 								<MenuListItem icon={ item.icon }>{ item.label }</MenuListItem>
 							</div>
